@@ -7,10 +7,8 @@ edition.workspace = true
 rust-version.workspace = true
 authors.workspace = true
 license.workspace = true
-homepage.workspace = true
-repository.workspace = true
 
-[dependencies] # All checked
+[dependencies] 
 foundry-block-explorers = { workspace = true, features = ["foundry-compilers"] }
 foundry-compilers = { workspace = true, features = ["svm-solc"] }
 

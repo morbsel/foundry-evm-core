@@ -1,153 +1,74 @@
 [workspace]
 members = [
-    "crates/cheatcodes/spec/", # Dont delete
-    "crates/common/", # Dont delete
-    "crates/config/", # Dont delete
-    "crates/evm/core/", # Dont delete
-    "crates/macros/", # Dont delete
+    "crates/cheatcodes/spec/", 
+    "crates/common/", 
+    "crates/config/", 
+    "crates/evm/core/",
+    "crates/macros/", 
 ]
 resolver = "2"
 
 [workspace.package]
 version = "0.2.0"
 edition = "2021"
-rust-version = "1.75" # Remember to update clippy.toml as well
+rust-version = "1.75" 
 authors = ["Foundry Contributors"]
 license = "MIT OR Apache-2.0"
-homepage = "https://github.com/foundry-rs/foundry"
-repository = "https://github.com/foundry-rs/foundry"
-exclude = ["benches/", "tests/", "test-data/", "testdata/"]
-
-# Speed up compilation time for dev builds by reducing emitted debug info.
-# NOTE: Debuggers may provide less useful information with this setting.
-# Uncomment this section if you're using a debugger.
-[profile.dev]
-debug = 1
-
-# Speed up tests and dev build.
-[profile.dev.package]
-# Solc and artifacts
-foundry-compilers.opt-level = 3
-solang-parser.opt-level = 3
-serde_json.opt-level = 3
-
-# EVM
-alloy-dyn-abi.opt-level = 3
-alloy-json-abi.opt-level = 3
-alloy-primitives.opt-level = 3
-alloy-sol-type-parser.opt-level = 3
-alloy-sol-types.opt-level = 3
-hashbrown.opt-level = 3
-keccak.opt-level = 3
-revm-interpreter.opt-level = 3
-revm-precompile.opt-level = 3
-revm-primitives.opt-level = 3
-revm.opt-level = 3
-ruint.opt-level = 3
-sha2.opt-level = 3
-sha3.opt-level = 3
-tiny-keccak.opt-level = 3
-
-# fuzzing
-proptest.opt-level = 3
-foundry-evm-fuzz.opt-level = 3
-
-# forking
-#axum.opt-level = 3
-
-# keystores
-scrypt.opt-level = 3
-
-# Local "release" mode, more optimized than dev but much faster to compile than release.
-[profile.local]
-inherits = "dev"
-opt-level = 1
-strip = "debuginfo"
-panic = "abort"
-codegen-units = 16
-
-# Like release, but with full debug symbols and with stack unwinds. Useful for e.g. `perf`.
-[profile.debug-fast]
-inherits = "release"
-debug = true
-strip = "none"
-panic = "unwind"
-incremental = false
-
-# Optimized release profile.
-[profile.release]
-opt-level = 3
-debug = "line-tables-only"
-lto = "fat"
-strip = "debuginfo"
-panic = "abort"
-codegen-units = 1
-
-# Override packages which aren't perf-sensitive for faster compilation speed.
-[profile.release.package]
-#mdbook.opt-level = 1
-#protobuf.opt-level = 1
-#rusoto_core.opt-level = 1
-#rusoto_credential.opt-level = 1
-#rusoto_kms.opt-level = 1
-toml_edit.opt-level = 1
-#trezor-client.opt-level = 1
 
 [workspace.dependencies]
-foundry-cheatcodes-spec = { path = "crates/cheatcodes/spec" } # Dont delete 
-foundry-common = { path = "crates/common" } # Dont delete
-foundry-config = { path = "crates/config" } # Dont delete 
-foundry-macros = { path = "crates/macros" } # Dont delete 
+foundry-cheatcodes-spec = { path = "crates/cheatcodes/spec" }
+foundry-common = { path = "crates/common" }
+foundry-config = { path = "crates/config" }
+foundry-macros = { path = "crates/macros" }
 
 # solc & compilation utilities
-foundry-block-explorers = { version = "0.2.3", default-features = false } # Dont delete 
-foundry-compilers = { version = "0.3.9", default-features = false } # Dont delete 
+foundry-block-explorers = { version = "0.2.3", default-features = false }
+foundry-compilers = { version = "0.3.9", default-features = false }
 
 ## revm
 # no default features to avoid c-kzg
-revm = { version = "3", default-features = false } # Dont delete
-revm-primitives = { version = "1", default-features = false } # Dont delete
-revm-inspectors = { git = "https://github.com/paradigmxyz/evm-inspectors", rev = "e90052361276aebcdc67cb24d8e2c4d907b6d299", default-features = false } # dont delete
+revm = { version = "3", default-features = false }
+revm-primitives = { version = "1", default-features = false }
+revm-inspectors = { git = "https://github.com/paradigmxyz/evm-inspectors", rev = "e90052361276aebcdc67cb24d8e2c4d907b6d299", default-features = false }
 
 ## ethers
-ethers-core = { version = "2.0.14", default-features = false } # Dont delete
-ethers-providers = { version = "2.0.14", default-features = false } # Dont delete
-ethers-signers = { version = "2.0.14", default-features = false } # Dont delete
-ethers-middleware = { version = "2.0.14", default-features = false } # Dont delete
+ethers-core = { version = "2.0.14", default-features = false }
+ethers-providers = { version = "2.0.14", default-features = false }
+ethers-signers = { version = "2.0.14", default-features = false }
+ethers-middleware = { version = "2.0.14", default-features = false }
 
 ## alloy
-alloy-genesis = { git = "https://github.com/alloy-rs/alloy" } # Dont delete
-alloy-json-rpc = { git = "https://github.com/alloy-rs/alloy" } # Dont delete
-alloy-providers = { git = "https://github.com/alloy-rs/alloy" } # Dont delete
-alloy-pubsub = { git = "https://github.com/alloy-rs/alloy" } # Dont delete
-alloy-rpc-client = { git = "https://github.com/alloy-rs/alloy" } # Dont delete
-alloy-rpc-types = { git = "https://github.com/alloy-rs/alloy" } # Dont delete
-alloy-signer = { git = "https://github.com/alloy-rs/alloy" } # Dont delete
-alloy-transport = { git = "https://github.com/alloy-rs/alloy" } # Dont delete
-alloy-transport-http = { git = "https://github.com/alloy-rs/alloy" } # Dont delete
-alloy-transport-ipc = { git = "https://github.com/alloy-rs/alloy" } # Dont delete
-alloy-transport-ws = { git = "https://github.com/alloy-rs/alloy" } # Dont delete
-alloy-primitives = { version = "0.6.3", features = ["getrandom"] } # Dont delete
-alloy-dyn-abi = "0.6.3" # Dont delete
-alloy-json-abi = "0.6.3" # Dont delete
-alloy-sol-types = "0.6.3" # Dont delete
-alloy-chains = "0.1" # Dont delete
+alloy-genesis = { git = "https://github.com/alloy-rs/alloy" }
+alloy-json-rpc = { git = "https://github.com/alloy-rs/alloy" }
+alloy-providers = { git = "https://github.com/alloy-rs/alloy" }
+alloy-pubsub = { git = "https://github.com/alloy-rs/alloy" }
+alloy-rpc-client = { git = "https://github.com/alloy-rs/alloy" }
+alloy-rpc-types = { git = "https://github.com/alloy-rs/alloy" }
+alloy-signer = { git = "https://github.com/alloy-rs/alloy" }
+alloy-transport = { git = "https://github.com/alloy-rs/alloy" }
+alloy-transport-http = { git = "https://github.com/alloy-rs/alloy" }
+alloy-transport-ipc = { git = "https://github.com/alloy-rs/alloy" }
+alloy-transport-ws = { git = "https://github.com/alloy-rs/alloy" }
+alloy-primitives = { version = "0.6.3", features = ["getrandom"] }
+alloy-dyn-abi = "0.6.3"
+alloy-json-abi = "0.6.3"
+alloy-sol-types = "0.6.3"
+alloy-chains = "0.1"
 
 ## misc
-derive_more = "0.99" # Dont delete
-eyre = "0.6" # Dont delete
-hex = { package = "const-hex", version = "1.6", features = ["hex"] } # Dont delete
-itertools = "0.11" # Dont delete
-pretty_assertions = "1.4" # Dont delete
-rand = "0.8" # Dont delete
-serde = { version = "1.0", features = ["derive"] } # Dont delete
-serde_json = { version = "1.0", features = ["arbitrary_precision"] } # Dont delete
-tracing = "0.1" # Dont delete
-
-tower = "0.4" # Dont delete
+derive_more = "0.99"
+eyre = "0.6"
+hex = { package = "const-hex", version = "1.6", features = ["hex"] }
+itertools = "0.11"
+pretty_assertions = "1.4"
+rand = "0.8"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = { version = "1.0", features = ["arbitrary_precision"] }
+tracing = "0.1"
+tower = "0.4"
 
 [patch.crates-io]
-revm = { git = "https://github.com/bluealloy/revm", branch = "reth_freeze" } # Dont delete
-revm-primitives = { git = "https://github.com/bluealloy/revm", branch = "reth_freeze" } # Dont delete
-revm-interpreter = { git = "https://github.com/bluealloy/revm", branch = "reth_freeze" } # Dont delete, maybe
-revm-precompile = { git = "https://github.com/bluealloy/revm", branch = "reth_freeze" } # Dont delete, maybe
+revm = { git = "https://github.com/bluealloy/revm", branch = "reth_freeze" }
+revm-primitives = { git = "https://github.com/bluealloy/revm", branch = "reth_freeze" }
+revm-interpreter = { git = "https://github.com/bluealloy/revm", branch = "reth_freeze" } # Maybe not necessary
+revm-precompile = { git = "https://github.com/bluealloy/revm", branch = "reth_freeze" } # Maybe not necessary
