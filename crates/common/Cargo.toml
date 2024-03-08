@@ -10,55 +10,55 @@ homepage.workspace = true
 repository.workspace = true
 
 [dependencies]
-foundry-block-explorers = { workspace = true, features = ["foundry-compilers"] }
-foundry-compilers.workspace = true
-foundry-config.workspace = true
+foundry-block-explorers = { workspace = true, features = ["foundry-compilers"] } # checked
+foundry-compilers.workspace = true # checked
+foundry-config.workspace = true # checked
 
-ethers-core.workspace = true
-ethers-middleware.workspace = true
-ethers-providers = { workspace = true, features = ["ws", "ipc"] }
-ethers-signers.workspace = true
+ethers-core.workspace = true # checked
+ethers-middleware.workspace = true # checked
+ethers-providers = { workspace = true, features = ["ws", "ipc"] } # checked
+ethers-signers.workspace = true # checked
 
-alloy-dyn-abi = { workspace = true, features = ["arbitrary", "eip712"] }
-alloy-json-abi.workspace = true
-alloy-primitives = { workspace = true, features = ["serde", "getrandom", "arbitrary", "rlp"] }
-alloy-rpc-types.workspace = true
-alloy-rpc-client.workspace = true
-alloy-providers.workspace = true
-alloy-transport.workspace = true
-alloy-signer.workspace = true
-alloy-transport-http.workspace = true
-alloy-transport-ws.workspace = true
-alloy-transport-ipc.workspace = true
-alloy-json-rpc.workspace = true
-alloy-pubsub.workspace = true
-alloy-sol-types.workspace = true
+alloy-dyn-abi = { workspace = true, features = ["arbitrary", "eip712"] } # checked
+alloy-json-abi.workspace = true # checked
+alloy-primitives = { workspace = true, features = ["serde", "getrandom", "arbitrary", "rlp"] } # checked
+alloy-rpc-types.workspace = true # checked
+alloy-rpc-client.workspace = true # checked
+alloy-providers.workspace = true # checked
+alloy-transport.workspace = true # checked
+alloy-signer.workspace = true # checked
+alloy-transport-http.workspace = true # checked
+alloy-transport-ws.workspace = true # checked
+alloy-transport-ipc.workspace = true # checked
+alloy-json-rpc.workspace = true # checked
+alloy-pubsub.workspace = true # checked
+alloy-sol-types.workspace = true # checked
 
-tower.workspace = true
+tower.workspace = true # checked
 
-async-trait = "0.1"
-clap = { version = "4", features = ["derive", "env", "unicode", "wrap_help"] }
-comfy-table = "7"
-dunce = "1"
-eyre.workspace = true
-glob = "0.3"
-globset = "0.4"
-hex.workspace = true
-once_cell = "1"
-rand.workspace = true
-reqwest = { version = "0.11", default-features = false }
-semver = "1"
-serde_json.workspace = true
-serde.workspace = true
-tempfile = "3"
-thiserror = "1"
-tokio = "1"
-tracing.workspace = true
-url = "2"
-walkdir = "2"
-yansi = "0.5"
+async-trait = "0.1" # checked
+clap = { version = "4", features = ["derive", "env", "unicode", "wrap_help"] } # checked
+comfy-table = "7" # checked
+dunce = "1" # checked
+eyre.workspace = true # checked
+glob = "0.3" # checked
+globset = "0.4" # checked
+hex.workspace = true # checked
+once_cell = "1" # checked
+rand.workspace = true # checked
+reqwest = { version = "0.11", default-features = false } # checked
+semver = "1" # checked
+serde_json.workspace = true # checked
+serde.workspace = true # checked
+tempfile = "3" # checked
+thiserror = "1" # checked
+tokio = "1" # checked
+tracing.workspace = true # checked
+url = "2" # checked
+walkdir = "2" # checked
+yansi = "0.5" # checked
 
 [dev-dependencies]
-foundry-macros.workspace = true
-pretty_assertions.workspace = true
-tokio = { version = "1", features = ["rt-multi-thread", "macros"] }
+foundry-macros.workspace = true # checked
+pretty_assertions.workspace = true # checked
+tokio = { version = "1", features = ["rt-multi-thread", "macros"] } # checked

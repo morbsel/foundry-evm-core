@@ -1,27 +1,10 @@
 [workspace]
 members = [
-    "crates/anvil/",
-    "crates/anvil/core/",
-    "crates/anvil/rpc/",
-    "crates/anvil/server/",
-    "crates/cast/",
-    "crates/cheatcodes/",
-    "crates/cheatcodes/spec/",
-    "crates/chisel/",
-    "crates/cli/",
-    "crates/common/",
-    "crates/config/",
-    "crates/debugger/",
-    "crates/doc/",
-    "crates/evm/core/",
-    "crates/evm/coverage/",
-    "crates/evm/evm/",
-    "crates/evm/fuzz/",
-    "crates/evm/traces/",
-    "crates/fmt/",
-    "crates/forge/",
-    "crates/macros/",
-    "crates/test-utils/",
+    "crates/cheatcodes/spec/", # Dont delete
+    "crates/common/", # Dont delete
+    "crates/config/", # Dont delete
+    "crates/evm/core/", # Dont delete
+    "crates/macros/", # Dont delete
 ]
 resolver = "2"
 
@@ -70,7 +53,7 @@ proptest.opt-level = 3
 foundry-evm-fuzz.opt-level = 3
 
 # forking
-axum.opt-level = 3
+#axum.opt-level = 3
 
 # keystores
 scrypt.opt-level = 3
@@ -102,117 +85,69 @@ codegen-units = 1
 
 # Override packages which aren't perf-sensitive for faster compilation speed.
 [profile.release.package]
-mdbook.opt-level = 1
-protobuf.opt-level = 1
-rusoto_core.opt-level = 1
-rusoto_credential.opt-level = 1
-rusoto_kms.opt-level = 1
+#mdbook.opt-level = 1
+#protobuf.opt-level = 1
+#rusoto_core.opt-level = 1
+#rusoto_credential.opt-level = 1
+#rusoto_kms.opt-level = 1
 toml_edit.opt-level = 1
-trezor-client.opt-level = 1
+#trezor-client.opt-level = 1
 
 [workspace.dependencies]
-anvil = { path = "crates/anvil" }
-cast = { path = "crates/cast" }
-chisel = { path = "crates/chisel" }
-forge = { path = "crates/forge" }
-
-forge-doc = { path = "crates/doc" }
-forge-fmt = { path = "crates/fmt" }
-forge-verify = { path = "crates/verify" }
-foundry-cheatcodes = { path = "crates/cheatcodes" }
-foundry-cheatcodes-spec = { path = "crates/cheatcodes/spec" }
-foundry-cli = { path = "crates/cli" }
-foundry-common = { path = "crates/common" }
-foundry-config = { path = "crates/config" }
-foundry-debugger = { path = "crates/debugger" }
-foundry-evm = { path = "crates/evm/evm" }
-foundry-evm-core = { path = "crates/evm/core" }
-foundry-evm-coverage = { path = "crates/evm/coverage" }
-foundry-evm-fuzz = { path = "crates/evm/fuzz" }
-foundry-evm-traces = { path = "crates/evm/traces" }
-foundry-macros = { path = "crates/macros" }
-foundry-test-utils = { path = "crates/test-utils" }
-foundry-wallets = { path = "crates/wallets" }
-foundry-linking = { path = "crates/linking" }
+foundry-cheatcodes-spec = { path = "crates/cheatcodes/spec" } # Dont delete 
+foundry-common = { path = "crates/common" } # Dont delete
+foundry-config = { path = "crates/config" } # Dont delete 
+foundry-macros = { path = "crates/macros" } # Dont delete 
 
 # solc & compilation utilities
-foundry-block-explorers = { version = "0.2.3", default-features = false }
-foundry-compilers = { version = "0.3.9", default-features = false }
+foundry-block-explorers = { version = "0.2.3", default-features = false } # Dont delete 
+foundry-compilers = { version = "0.3.9", default-features = false } # Dont delete 
 
 ## revm
 # no default features to avoid c-kzg
-revm = { version = "3", default-features = false }
-revm-primitives = { version = "1", default-features = false }
-revm-inspectors = { git = "https://github.com/paradigmxyz/evm-inspectors", rev = "e90052361276aebcdc67cb24d8e2c4d907b6d299", default-features = false }
+revm = { version = "3", default-features = false } # Dont delete
+revm-primitives = { version = "1", default-features = false } # Dont delete
+revm-inspectors = { git = "https://github.com/paradigmxyz/evm-inspectors", rev = "e90052361276aebcdc67cb24d8e2c4d907b6d299", default-features = false } # dont delete
 
 ## ethers
-ethers = { version = "2.0.14", default-features = false }
-ethers-core = { version = "2.0.14", default-features = false }
-ethers-contract = { version = "2.0.14", default-features = false }
-ethers-contract-abigen = { version = "2.0.14", default-features = false }
-ethers-providers = { version = "2.0.14", default-features = false }
-ethers-signers = { version = "2.0.14", default-features = false }
-ethers-middleware = { version = "2.0.14", default-features = false }
-ethers-solc = { version = "2.0.14", default-features = false }
+ethers-core = { version = "2.0.14", default-features = false } # Dont delete
+ethers-providers = { version = "2.0.14", default-features = false } # Dont delete
+ethers-signers = { version = "2.0.14", default-features = false } # Dont delete
+ethers-middleware = { version = "2.0.14", default-features = false } # Dont delete
 
 ## alloy
-alloy-consensus = { git = "https://github.com/alloy-rs/alloy" }
-alloy-eips = { git = "https://github.com/alloy-rs/alloy" }
-alloy-genesis = { git = "https://github.com/alloy-rs/alloy" }
-alloy-json-rpc = { git = "https://github.com/alloy-rs/alloy" }
-alloy-network = { git = "https://github.com/alloy-rs/alloy" }
-alloy-node-bindings = { git = "https://github.com/alloy-rs/alloy" }
-alloy-providers = { git = "https://github.com/alloy-rs/alloy" }
-alloy-pubsub = { git = "https://github.com/alloy-rs/alloy" }
-alloy-rpc-client = { git = "https://github.com/alloy-rs/alloy" }
-alloy-rpc-trace-types = { git = "https://github.com/alloy-rs/alloy" }
-alloy-rpc-types = { git = "https://github.com/alloy-rs/alloy" }
-alloy-signer = { git = "https://github.com/alloy-rs/alloy" }
-alloy-transport = { git = "https://github.com/alloy-rs/alloy" }
-alloy-transport-http = { git = "https://github.com/alloy-rs/alloy" }
-alloy-transport-ipc = { git = "https://github.com/alloy-rs/alloy" }
-alloy-transport-ws = { git = "https://github.com/alloy-rs/alloy" }
-alloy-primitives = { version = "0.6.3", features = ["getrandom"] }
-alloy-dyn-abi = "0.6.3"
-alloy-json-abi = "0.6.3"
-alloy-sol-types = "0.6.3"
-syn-solidity = "0.6.3"
-alloy-chains = "0.1"
-
-alloy-rlp = "0.3.3"
-solang-parser = "=0.3.3"
+alloy-genesis = { git = "https://github.com/alloy-rs/alloy" } # Dont delete
+alloy-json-rpc = { git = "https://github.com/alloy-rs/alloy" } # Dont delete
+alloy-providers = { git = "https://github.com/alloy-rs/alloy" } # Dont delete
+alloy-pubsub = { git = "https://github.com/alloy-rs/alloy" } # Dont delete
+alloy-rpc-client = { git = "https://github.com/alloy-rs/alloy" } # Dont delete
+alloy-rpc-types = { git = "https://github.com/alloy-rs/alloy" } # Dont delete
+alloy-signer = { git = "https://github.com/alloy-rs/alloy" } # Dont delete
+alloy-transport = { git = "https://github.com/alloy-rs/alloy" } # Dont delete
+alloy-transport-http = { git = "https://github.com/alloy-rs/alloy" } # Dont delete
+alloy-transport-ipc = { git = "https://github.com/alloy-rs/alloy" } # Dont delete
+alloy-transport-ws = { git = "https://github.com/alloy-rs/alloy" } # Dont delete
+alloy-primitives = { version = "0.6.3", features = ["getrandom"] } # Dont delete
+alloy-dyn-abi = "0.6.3" # Dont delete
+alloy-json-abi = "0.6.3" # Dont delete
+alloy-sol-types = "0.6.3" # Dont delete
+alloy-chains = "0.1" # Dont delete
 
 ## misc
-chrono = { version = "0.4", default-features = false, features = ["clock", "std"] }
-color-eyre = "0.6"
-derive_more = "0.99"
-eyre = "0.6"
-hex = { package = "const-hex", version = "1.6", features = ["hex"] }
-itertools = "0.11"
-jsonpath_lib = "0.3"
-pretty_assertions = "1.4"
-protobuf = "=3.2.0"
-rand = "0.8"
-serde = { version = "1.0", features = ["derive"] }
-serde_json = { version = "1.0", features = ["arbitrary_precision"] }
-base64 = "0.21"
-strum = "0.26"
-toml = "0.8"
-tracing = "0.1"
-tracing-subscriber = "0.3"
-evm-disassembler = "0.4"
-vergen = { version = "8", default-features = false }
-# TODO: bumping to >=0.13.2 breaks ecrecover: https://github.com/foundry-rs/foundry/pull/6969
-# TODO: unpin on next revm release: https://github.com/bluealloy/revm/pull/870
-k256 = "=0.13.1"
+derive_more = "0.99" # Dont delete
+eyre = "0.6" # Dont delete
+hex = { package = "const-hex", version = "1.6", features = ["hex"] } # Dont delete
+itertools = "0.11" # Dont delete
+pretty_assertions = "1.4" # Dont delete
+rand = "0.8" # Dont delete
+serde = { version = "1.0", features = ["derive"] } # Dont delete
+serde_json = { version = "1.0", features = ["arbitrary_precision"] } # Dont delete
+tracing = "0.1" # Dont delete
 
-axum = "0.6"
-hyper = "0.14"
-tower = "0.4"
-tower-http = "0.4"
+tower = "0.4" # Dont delete
 
 [patch.crates-io]
-revm = { git = "https://github.com/bluealloy/revm", branch = "reth_freeze" }
-revm-primitives = { git = "https://github.com/bluealloy/revm", branch = "reth_freeze" }
-revm-interpreter = { git = "https://github.com/bluealloy/revm", branch = "reth_freeze" }
-revm-precompile = { git = "https://github.com/bluealloy/revm", branch = "reth_freeze" }
+revm = { git = "https://github.com/bluealloy/revm", branch = "reth_freeze" } # Dont delete
+revm-primitives = { git = "https://github.com/bluealloy/revm", branch = "reth_freeze" } # Dont delete
+revm-interpreter = { git = "https://github.com/bluealloy/revm", branch = "reth_freeze" } # Dont delete, maybe
+revm-precompile = { git = "https://github.com/bluealloy/revm", branch = "reth_freeze" } # Dont delete, maybe
