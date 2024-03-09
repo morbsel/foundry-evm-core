@@ -15,5 +15,8 @@ Include the following lines in your project's `Cargo.toml` under `[patch.crates-
 revm-interpreter = { git = "https://github.com/bluealloy/revm.git", rev = "76e7c88de07221e1ffe68e05f2be384ff6bcad31" } # Aligns revm-primitives to version 2.1.0
 revm-precompile = { git = "https://github.com/bluealloy/revm.git", rev = "76e7c88de07221e1ffe68e05f2be384ff6bcad31" } # Aligns revm-primitives to version 2.1.0 
 ```
+## :exclamation: Version Compatibility Notice
+
+This project is known to be compatible with `revm` version `6.1.0`. Using versions of `revm` other than `6.1.0` in your `Cargo.toml` may result in compilation errors or unexpected behavior.
 
 
