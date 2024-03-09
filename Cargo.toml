@@ -19,6 +19,7 @@ license = "MIT OR Apache-2.0"
 foundry-cheatcodes-spec = { path = "crates/cheatcodes/spec" }
 foundry-common = { path = "crates/common" }
 foundry-config = { path = "crates/config" }
+foundry-evm-core = { path = "crates/evm/core" }
 foundry-macros = { path = "crates/macros" }
 
 # solc & compilation utilities
