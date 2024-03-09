@@ -679,7 +679,7 @@ impl Config {
             .set_auto_detect(self.is_auto_detect())
             .set_offline(self.offline)
             .set_cached(cached)
-            .set_build_info(cached && self.build_info)
+            .set_build_info(!no_artifacts && self.build_info)
             .set_no_artifacts(no_artifacts)
             .build()?;
 
@@ -963,7 +963,7 @@ impl Config {
                 (Ok(mut config), Some(key)) => {
                     // we update the key, because if an etherscan_api_key is set, it should take
                     // precedence over the entry, since this is usually set via env var or CLI args.
-                    config.key = key.clone();
+                    config.key.clone_from(key);
                     return Ok(Some(config))
                 }
                 (Ok(config), None) => return Ok(Some(config)),
