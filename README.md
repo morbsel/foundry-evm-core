@@ -1,7 +1,7 @@
-### Includes
+# Includes
 Foundry EVM core and its necessary dependencies
 
-### Use Cases
+## Use Cases
 - `SharedBackend` in combination with revm
 
 ## :warning: **Dependency Configuration (crucial)**
