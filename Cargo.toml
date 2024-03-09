@@ -29,7 +29,8 @@ foundry-compilers = { version = "0.3.9", default-features = false }
 ## revm
 # no default features to avoid c-kzg
 revm = { version = "6.1", default-features = false }
-revm-primitives = { version = "2", default-features = false }
+# revm-primitives@2.1.0
+revm-primitives = { git = "https://github.com/bluealloy/revm.git", rev = "76e7c88de07221e1ffe68e05f2be384ff6bcad31" , default-features = false }
 revm-inspectors = { git = "https://github.com/paradigmxyz/evm-inspectors", rev = "5d560be", features = [
     "serde",
 ] }
@@ -71,4 +72,7 @@ serde_json = { version = "1.0", features = ["arbitrary_precision"] }
 tracing = "0.1"
 tower = "0.4"
 
+[patch.crates-io]
+revm-interpreter = { git = "https://github.com/bluealloy/revm.git", rev = "76e7c88de07221e1ffe68e05f2be384ff6bcad31" } # Needed for aliging revm-primitives@2.1.0
+revm-precompile = { git = "https://github.com/bluealloy/revm.git", rev = "76e7c88de07221e1ffe68e05f2be384ff6bcad31" } # Needed for aliging revm-primitives@2.1.0
 
