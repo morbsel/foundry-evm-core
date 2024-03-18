@@ -678,7 +678,7 @@ impl Config {
             })
             .set_auto_detect(self.is_auto_detect())
             .set_offline(self.offline)
-            .set_cached(cached)
+            .set_cached(cached && !self.build_info)
             .set_build_info(!no_artifacts && self.build_info)
             .set_no_artifacts(no_artifacts)
             .build()?;
@@ -1869,7 +1869,7 @@ impl Default for Config {
             contract_pattern_inverse: None,
             path_pattern: None,
             path_pattern_inverse: None,
-            fuzz: Default::default(),
+            fuzz: FuzzConfig::new("cache/fuzz".into()),
             invariant: Default::default(),
             always_use_create_2_factory: false,
             ffi: false,
